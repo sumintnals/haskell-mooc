@@ -106,7 +106,9 @@ palindromify s
 --   safeDiv 4 0  ==> Nothing
 
 safeDiv :: Integer -> Integer -> Maybe Integer
-safeDiv x y = todo
+safeDiv x y
+  | y == 0    = Nothing        -- 나누는 값이 0이면 Nothing 반환
+  | otherwise = Just (x `div` y)  -- 나누는 값이 0이 아니면 결과를 Just로 감싸서 반환
 
 ------------------------------------------------------------------------------
 -- Ex 8: implement a function greet that greets a person given a first
