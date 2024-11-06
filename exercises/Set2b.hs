@@ -125,7 +125,11 @@ countdownHelper n = show n ++ "... " ++ countdownHelper (n - 1)
 -- Hint: remember the mod function!
 
 smallestDivisor :: Integer -> Integer
-smallestDivisor = todo
+smallestDivisor n = findDivisor n 2
+  where
+    findDivisor n d
+      | n `mod` d == 0 = d  -- 나머지가 0이면 d가 가장 작은 약수
+      | otherwise      = findDivisor n (d + 1)  -- 아니면 d를 1 증가
 
 ------------------------------------------------------------------------------
 -- Ex 7: implement a function isPrime that checks if the given number
