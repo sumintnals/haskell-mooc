@@ -65,7 +65,10 @@ oddFactorial n
 -- * https://en.wikipedia.org/wiki/Euclidean_algorithm
 
 myGcd :: Integer -> Integer -> Integer
-myGcd = todo
+myGcd a 0 = a  -- b가 0이면 a가 최대공약수
+myGcd a b
+  | a > b     = myGcd (a - b) b  -- a가 더 크면 a에서 b를 뺀 값을 재귀적으로 호출
+  | otherwise = myGcd a (b - a)  -- b가 더 크면 b에서 a를 뺀 값을 재귀적으로 호출
 
 ------------------------------------------------------------------------------
 -- Ex 4: Implement the function leftpad which adds space characters
