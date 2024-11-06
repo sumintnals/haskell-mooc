@@ -84,7 +84,10 @@ myGcd a b
 -- * you can compute the length of a string with the length function
 
 leftpad :: String -> Int -> String
-leftpad = todo
+leftpad str len = if length str < len
+                  then leftpad (' ' : str) len  -- 재귀적으로 앞에 공백을 추가
+                  else str
+
 
 ------------------------------------------------------------------------------
 -- Ex 5: let's make a countdown for a rocket! Given a number, you
