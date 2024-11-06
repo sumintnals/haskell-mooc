@@ -32,7 +32,9 @@ years = [1982, 2004, 2020]
 -- Hint! remember the take and drop functions.
 
 takeFinal :: Int -> [a] -> [a]
-takeFinal n xs = todo
+takeFinal n xs
+  | n >= length xs = xs  -- 리스트가 n보다 짧거나 같을 때, 리스트 전체를 반환
+  | otherwise      = drop (length xs - n) xs  -- 리스트 길이에서 n을 뺀 위치부터 끝까지 반환
 
 ------------------------------------------------------------------------------
 -- Ex 3: Update an element at a certain index in a list. More
