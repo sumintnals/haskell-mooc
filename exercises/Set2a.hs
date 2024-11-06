@@ -120,7 +120,8 @@ safeDiv x y
 --   greet "John" (Just "Smith")  ==> "Hello, John Smith!"
 
 greet :: String -> Maybe String -> String
-greet first last = todo
+greet first last = 
+  "Hello, " ++ first ++ " " ++ maybe "" id last ++ "!"
 
 ------------------------------------------------------------------------------
 -- Ex 9: safe list indexing. Define a function safeIndex so that
