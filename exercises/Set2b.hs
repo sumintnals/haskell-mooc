@@ -30,7 +30,10 @@ binomial n k
 --   oddFactorial 6 ==> 5*3*1 ==> 15
 
 oddFactorial :: Integer -> Integer
-oddFactorial = todo
+oddFactorial n
+  | n <= 0    = 1  -- n이 0 이하일 경우 1 반환
+  | odd n     = n * oddFactorial (n - 2)  -- 홀수인 경우 그 값을 곱하고 2를 빼서 계속 반복
+  | otherwise = oddFactorial (n - 1)      -- 짝수인 경우 1 빼서 홀수로
 
 ------------------------------------------------------------------------------
 -- Ex 3: implement the Euclidean Algorithm for finding the greatest
